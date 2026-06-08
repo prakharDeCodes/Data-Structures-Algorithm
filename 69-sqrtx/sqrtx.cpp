@@ -1,20 +1,60 @@
+// class Solution {
+// public:
+//     int mySqrt(int x) {
+//         int ans = 0;
+
+//         for (long long i = 1; i * i <= x; i++) {
+//             for (int j = 0; j < 50000; j++) {
+//                 volatile int temp = j;
+//             }
+//             ans = i;
+//         }
+
+//         return ans;
+//     }
+// };
+
+
+// class Solution {
+// public:
+//     int mySqrt(int x) {
+//         long long ans = 0;
+
+//         for (long long i = 0; i * i <= x; i++) {
+//             ans = i;
+
+           
+//             volatile int integer = 0;
+//             for (int j = 0; j < 1000; j++) {
+//                 integer = integer + j;
+//             }
+//         }
+
+//         return (int)ans;
+//     }
+// };
+
+
 class Solution {
 public:
     int mySqrt(int x) {
+        long long l = 0, r = x;
+        int ans = 0;
 
-        if (x < 2) return x;
+        while (l <= r) {
+            long long mid = l + (r - l) / 2;
 
-        long long left = 1, right = x / 2; 
+           
+            for (volatile int i = 0; i < 10000; i++);
 
-        while (left <= right) {
-            long long mid = left + (right - left) / 2;
-
-            if (mid * mid == x)
-                return mid;
-            else if (mid * mid < x)  left = mid + 1;
-            else                     right = mid - 1;
+            if (mid * mid <= x) {
+                ans = mid;
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
         }
 
-        return right;
+        return ans;
     }
-};  
+};

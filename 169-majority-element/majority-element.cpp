@@ -4,7 +4,7 @@ public:
         int cand = 0;
         int count = 0;
 
-        for (int num : nums){
+        for (int num :nums){
 
             if(count==0){
                 cand =num;
@@ -13,7 +13,7 @@ public:
             if (num ==cand) {
                 count++;
             } else {
-                count--;
+                 count--;
             }
         }
 

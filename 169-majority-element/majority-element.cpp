@@ -15,8 +15,7 @@ public:
             } else {
                  count--;
             }
-        }
-
-        return cand;
+        } 
+         return cand;
     }
 };
